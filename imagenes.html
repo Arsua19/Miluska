@@ -1,142 +1,181 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestros Recuerdos 💞</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: fondo 5s infinite alternate;
-    color: white;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros Recuerdos 💕</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffe6eb);
+      font-family: 'Comic Sans MS', cursive;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      overflow: hidden;
+    }
 
-  @keyframes fondo {
-    0% { background: linear-gradient(135deg, #ffdde1, #ee9ca7); }
-    100% { background: linear-gradient(135deg, #f6d365, #fda085); }
-  }
+    .contenedor {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  h1 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  }
+    img {
+      width: 280px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 0, 102, 0.6);
+      animation: aparecer 1s ease;
+    }
 
-  .galeria {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-  .foto {
-    width: 280px;
-    height: 280px;
-    border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-    margin-bottom: 15px;
-    transition: all 0.5s ease;
-  }
+    p {
+      font-size: 20px;
+      margin-top: 15px;
+      color: #fff;
+      text-shadow: 0 0 10px #ff4d6d;
+      animation: texto 1.5s ease;
+    }
 
-  textarea {
-    width: 280px;
-    height: 80px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
-    color: #333;
-    background: rgba(255,255,255,0.9);
-  }
+    @keyframes texto {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  .botones {
-    margin-top: 15px;
-  }
+    .botones {
+      margin-top: 20px;
+    }
 
-  button {
-    background-color: #ff5e78;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 12px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+    button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
 
-  button:hover {
-    background-color: #ff2e63;
-  }
+    button:hover {
+      background-color: #ff1e50;
+      transform: scale(1.1);
+    }
 
-  .mensaje-final {
-    font-size: 1.3em;
-    margin-top: 15px;
-    animation: aparecer 1s ease-in-out forwards;
-  }
+    /* corazones flotando */
+    .corazon {
+      position: absolute;
+      color: rgba(255, 0, 102, 0.4);
+      font-size: 20px;
+      animation: flotar 6s infinite ease-in;
+    }
 
-  @keyframes aparecer {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    @keyframes flotar {
+      from { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    /* mensaje final */
+    .final {
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #fff;
+      animation: brillar 1s infinite alternate;
+    }
+
+    @keyframes brillar {
+      from { text-shadow: 0 0 5px #fff; }
+      to { text-shadow: 0 0 20px #ff69b4; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>💖 Nuestros Recuerdos 💖</h1>
+  <div class="contenedor">
+    <img id="foto" src="imagenes/foto2.jpg" alt="Recuerdo">
+    <p id="mensaje">Nuestro primer momento juntos 💖</p>
 
-<div class="galeria">
-  <img id="imagen" class="foto" src="imagenes/foto1.jpg" alt="Recuerdo">
-  <textarea id="mensaje" placeholder="Escribe algo bonito aquí... 💌"></textarea>
-
-  <div class="botones">
-    <button onclick="anterior()">⬅️ Anterior</button>
-    <button onclick="siguiente()">Siguiente ➡️</button>
+    <div class="botones">
+      <button onclick="anterior()">⟨ Anterior</button>
+      <button onclick="siguiente()">Siguiente ⟩</button>
+    </div>
   </div>
 
-  <p class="mensaje-final" id="texto-final"></p>
-</div>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5117265c9e.mp3?filename=romantic-piano-112198.mp3" type="audio/mp3">
+  </audio>
 
-<script>
-const imagenes = [
-  "imagenes/foto1.jpg",
-  "imagenes/foto2.jpg",
-  "imagenes/foto3.jpg",
-  "imagenes/foto4.jpg"
-];
+  <script>
+    const fotos = [
+      "imagenes/foto2.jpg",
+      "imagenes/foto3.jpg",
+      "imagenes/foto4.jpg",
+      "imagenes/foto5.jpg",
+      "imagenes/foto6.jpg",
+      "imagenes/foto7.jpg"
+    ];
 
-let indice = 0;
+    const mensajes = [
+      "Nuestro primer momento juntos 💖",
+      "Tus sonrisas son mi lugar favorito 🌸",
+      "Cada foto contigo es un pedacito de cielo ✨",
+      "Te miro y el mundo se detiene por un segundo 💞",
+      "Eres la razón de mis días felices 💋",
+      "🎉 Muy bien, mi amor... ¡Feliz cumpleaños, amorcito! 💝 Gracias por ser mi todo 💫"
+    ];
 
-function mostrarImagen() {
-  const img = document.getElementById("imagen");
-  img.style.opacity = 0;
-  setTimeout(() => {
-    img.src = imagenes[indice];
-    img.style.opacity = 1;
-  }, 300);
-}
+    let indice = 0;
+    const foto = document.getElementById("foto");
+    const mensaje = document.getElementById("mensaje");
 
-function siguiente() {
-  indice = (indice + 1) % imagenes.length;
-  mostrarImagen();
-}
+    function siguiente() {
+      if (indice < fotos.length - 1) {
+        indice++;
+        actualizar();
+      }
+    }
 
-function anterior() {
-  indice = (indice - 1 + imagenes.length) % imagenes.length;
-  mostrarImagen();
-}
+    function anterior() {
+      if (indice > 0) {
+        indice--;
+        actualizar();
+      }
+    }
 
-mostrarImagen();
-</script>
+    function actualizar() {
+      foto.src = fotos[indice];
+      mensaje.innerHTML = mensajes[indice];
 
+      // animación
+      foto.style.animation = "none";
+      mensaje.style.animation = "none";
+      void foto.offsetWidth;
+      foto.style.animation = "aparecer 1s ease";
+      mensaje.style.animation = "texto 1.5s ease";
+    }
+
+    // corazones flotando
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerHTML = "❤";
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.fontSize = Math.random() * 20 + 10 + "px";
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 6000);
+    }
+
+    setInterval(crearCorazon, 400);
+  </script>
 </body>
 </html>
