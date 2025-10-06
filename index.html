@@ -12,9 +12,9 @@
     height: 100vh;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     animation: fondo 6s ease-in-out infinite alternate;
   }
 
@@ -23,17 +23,16 @@
     100% { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
   }
 
-  .corazon-con-imagen {
+  .contenedor-principal {
     display: flex;
     align-items: center;
+    gap: 40px;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
   }
 
   .corazon {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     background-color: red;
     position: relative;
     transform: rotate(-45deg);
@@ -43,33 +42,39 @@
   .corazon::before,
   .corazon::after {
     content: "";
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     background-color: red;
     border-radius: 50%;
     position: absolute;
   }
 
-  .corazon::before { top: -60px; left: 0; }
-  .corazon::after { left: 60px; top: 0; }
+  .corazon::before { top: -75px; left: 0; }
+  .corazon::after { left: 75px; top: 0; }
 
   @keyframes latir {
     0%, 100% { transform: scale(1) rotate(-45deg); }
     50% { transform: scale(1.2) rotate(-45deg); }
   }
 
-  .imagen-lado {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+  .foto-lado {
+    width: 450px;
+    height: 450px;
+    object-fit: contain;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    animation: aparecer 2s ease-in-out forwards;
+    box-shadow: 0 0 30px rgba(255, 0, 100, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .foto-lado:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 0, 150, 0.6);
   }
 
   .contenedor {
     text-align: center;
     color: white;
+    margin-top: 30px;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px 40px;
     border-radius: 20px;
@@ -101,7 +106,9 @@
     background-color: #ff2e63;
   }
 
-  .oculto { display: none; }
+  .oculto {
+    display: none;
+  }
 
   .mensaje-final {
     font-size: 1.3em;
@@ -117,21 +124,17 @@
 </head>
 <body>
 
-<!-- ❤️ Corazón + Imagen -->
-<div class="corazon-con-imagen">
+<div class="contenedor-principal">
   <div class="corazon"></div>
-  <!-- Cambia la ruta si tu imagen está en otra carpeta -->
-  <img src="imagenes/foto1.jpg" alt="Foto 1" class="imagen-lado">
+  <img src="imagenes/foto1.jpg.jpeg" alt="Foto de amor" class="foto-lado">
 </div>
 
-<!-- 💬 Paso 1 -->
 <div class="contenedor" id="paso1">
   <h2>💞 Si conoces a esta chica escribe su nombre 💞</h2>
   <input type="text" id="nombre" placeholder="Escribe su nombre...">
   <button onclick="verificarNombre()">Ingresar</button>
 </div>
 
-<!-- 💖 Paso 2 -->
 <div class="contenedor oculto" id="paso2">
   <h2>💖 Necesito comprobar si de verdad eres tú 💖</h2>
   <p>Escribe tu fecha favorita:</p>
@@ -139,7 +142,6 @@
   <button onclick="verificarFecha()">Siguiente</button>
 </div>
 
-<!-- 💕 Paso 3 -->
 <div class="contenedor oculto" id="paso3">
   <h2>💕 Última pregunta... 💕</h2>
   <p>¿Cómo te dice de cariño tu enamorado?</p>
@@ -147,7 +149,6 @@
   <button onclick="verificarApodo()">Siguiente</button>
 </div>
 
-<!-- 💝 Final -->
 <div class="contenedor oculto" id="final">
   <h2 class="mensaje-final">💝 Muy bien, has superado todas las pruebas 💝</h2>
   <p>🎉 ¡Feliz cumpleaños, amorcito! 🎉</p>
