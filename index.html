@@ -58,16 +58,14 @@
     50% { transform: scale(1.2) rotate(-45deg); }
   }
 
- .foto-lado {
-    width: 450px;
-    height: 450px;
-    object-fit: contain;
+  .imagen-lado {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 100, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    animation: aparecer 2s ease-in-out forwards;
+  }
 
   .contenedor {
     text-align: center;
@@ -194,7 +192,5 @@ function irSiguiente() {
 
 </body>
 </html>
-
-
 
 
