@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CON MUCHO CARIÑO PARA TI 💖</title>
+<title>Para Mi Amor 💖</title>
 <style>
   body {
     margin: 0;
@@ -23,16 +23,9 @@
     100% { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
   }
 
-  .contenedor-principal {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    justify-content: center;
-  }
-
   .corazon {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     background-color: red;
     position: relative;
     transform: rotate(-45deg);
@@ -42,33 +35,19 @@
   .corazon::before,
   .corazon::after {
     content: "";
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     background-color: red;
     border-radius: 50%;
     position: absolute;
   }
 
-  .corazon::before { top: -75px; left: 0; }
-  .corazon::after { left: 75px; top: 0; }
+  .corazon::before { top: -60px; left: 0; }
+  .corazon::after { left: 60px; top: 0; }
 
   @keyframes latir {
     0%, 100% { transform: scale(1) rotate(-45deg); }
     50% { transform: scale(1.2) rotate(-45deg); }
-  }
-
-  .foto-lado {
-    width: 450px;
-    height: 450px;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 100, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .foto-lado:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(255, 0, 150, 0.6);
   }
 
   .contenedor {
@@ -124,10 +103,7 @@
 </head>
 <body>
 
-<div class="contenedor-principal">
-  <div class="corazon"></div>
-  <img src="imagenes/foto1.jpg.jpeg" alt="Foto de amor" class="foto-lado">
-</div>
+<div class="corazon"></div>
 
 <div class="contenedor" id="paso1">
   <h2>💞 Si conoces a esta chica escribe su nombre 💞</h2>
