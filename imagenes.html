@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestros Recuerdos 💞</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fondo 5s infinite alternate;
+    color: white;
+  }
+
+  @keyframes fondo {
+    0% { background: linear-gradient(135deg, #ffdde1, #ee9ca7); }
+    100% { background: linear-gradient(135deg, #f6d365, #fda085); }
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .foto {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+  }
+
+  textarea {
+    width: 280px;
+    height: 80px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .botones {
+    margin-top: 15px;
+  }
+
+  button {
+    background-color: #ff5e78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #ff2e63;
+  }
+
+  .mensaje-final {
+    font-size: 1.3em;
+    margin-top: 15px;
+    animation: aparecer 1s ease-in-out forwards;
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<h1>💖 Nuestros Recuerdos 💖</h1>
+
+<div class="galeria">
+  <img id="imagen" class="foto" src="imagenes/foto1.jpg" alt="Recuerdo">
+  <textarea id="mensaje" placeholder="Escribe algo bonito aquí... 💌"></textarea>
+
+  <div class="botones">
+    <button onclick="anterior()">⬅️ Anterior</button>
+    <button onclick="siguiente()">Siguiente ➡️</button>
+  </div>
+
+  <p class="mensaje-final" id="texto-final"></p>
+</div>
+
+<script>
+const imagenes = [
+  "imagenes/foto1.jpg",
+  "imagenes/foto2.jpg",
+  "imagenes/foto3.jpg",
+  "imagenes/foto4.jpg"
+];
+
+let indice = 0;
+
+function mostrarImagen() {
+  const img = document.getElementById("imagen");
+  img.style.opacity = 0;
+  setTimeout(() => {
+    img.src = imagenes[indice];
+    img.style.opacity = 1;
+  }, 300);
+}
+
+function siguiente() {
+  indice = (indice + 1) % imagenes.length;
+  mostrarImagen();
+}
+
+function anterior() {
+  indice = (indice - 1 + imagenes.length) % imagenes.length;
+  mostrarImagen();
+}
+
+mostrarImagen();
+</script>
+
+</body>
+</html>
